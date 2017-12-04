@@ -16021,6 +16021,7 @@ var marked = require("marked");
 
 // Some variables
 var isMac = /Mac/.test(navigator.platform);
+var isAndroid = /Android/i.test(navigator.platform) || /Android/i.test(navigator.userAgent);
 
 // Mapping of actions that can be bound to keyboard shortcuts or toolbar buttons
 var bindings = {
@@ -17491,7 +17492,7 @@ SimpleMDE.prototype.render = function(el) {
 		tabSize: (options.tabSize != undefined) ? options.tabSize : 2,
 		indentUnit: (options.tabSize != undefined) ? options.tabSize : 2,
 		indentWithTabs: (options.indentWithTabs === false) ? false : true,
-		inputStyle: isMobile() ? "textarea" : "contenteditable",
+		inputStyle: isAndroid() ? "textarea" : "contenteditable",
 		lineNumbers: false,
 		autofocus: (options.autofocus === true) ? true : false,
 		extraKeys: keyMaps,
